@@ -5,6 +5,12 @@ const fs = require("fs");
 
 const PORT = 4000;
 
+// Welcome
+
+app.get("/", function (request, response) {
+    response.send("Welcome, Bro!...")
+});
+
 // 1. Write an API endpoint which will create a text file in a particular folder
 
 app.get("/create-file", function (request, response) {
@@ -31,8 +37,7 @@ app.get("/create-file", function (request, response) {
 // 2. Write an API endpoint to retrieve all the text files in that particular folder
 
 app.get("/retrieve-files", function (request, response) {
-    const srcfolderPath = '/Users/Nithish Kumar/Desktop/forTask';
-    const destfolderPath = './retrieving-files'
+    const srcfolderPath = '/Users/Nithish Kumar/Desktop/FSD/ReactProjects/Tasks/Day 39 task/retrieve-folder';
 
     const files = fs.readdirSync(srcfolderPath);
     const allFiles = files.filter((file) => path.extname(file) === '.txt');
